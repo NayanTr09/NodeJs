@@ -1,5 +1,6 @@
 pipeline {
-  agent anytools {nodejs "Node"}
+  agent any
+  tools {nodejs "Node"}
  
   stages {
     stage('Example') {
