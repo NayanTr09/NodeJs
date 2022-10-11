@@ -7,6 +7,7 @@ pipeline {
                     sh 'npm config ls'
                 }
             }
+      }
         stage('Code Analysis') {
           environment {
     SCANNER_HOME = tool 'SonarScanner'
