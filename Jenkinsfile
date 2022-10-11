@@ -1,14 +1,15 @@
 pipeline {
-  agent any
-    stages {
-      stage('Build') {
-            steps {
-                nodejs(nodeJSInstallationName: 'Node 12.22.12', configId: '<config-file-provider-id>') {
-                    sh 'npm config ls'
-                }
-            }
+  agent anytools {nodejs "Node"}
+ 
+  stages {
+    stage('Example') {
+      steps {
+        sh 'npm config ls'
       }
-        stage('Code Analysis') {
+    }
+  }
+  
+      stage('Code Analysis') {
           environment {
     SCANNER_HOME = tool 'SonarScanner'
     PROJECT_NAME = "ChatApp"
